@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace E_Commerce.Business
+namespace ClassLibrary1
 {
     public class Class1
     {

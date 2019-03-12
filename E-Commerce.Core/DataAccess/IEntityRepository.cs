@@ -14,6 +14,5 @@ namespace E_Commerce.Core.DataAccess
         void Update(T entity);
         void Delete(T entity);
          
-
     }
 }
