@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+    <RootNamespace>E_Commerce.Entities</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="ComplexType\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\E-Commerce.Core\E-Commerce.Core.csproj" />
+  </ItemGroup>
+
+</Project>
