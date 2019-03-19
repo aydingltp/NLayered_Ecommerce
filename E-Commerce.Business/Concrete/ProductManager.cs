@@ -9,7 +9,7 @@ namespace E_Commerce.Business.Concrete
 {
     public class ProductManager:IProductService
     {
-        private IProductDal _productDal;
+        private readonly IProductDal _productDal;
 
         public ProductManager(IProductDal productDal)
         {
@@ -39,7 +39,7 @@ namespace E_Commerce.Business.Concrete
 
         public void Delete(int productId)
         {
-            _productDal.Delete(productId);
+            _productDal.Delete(new Product{ProductId = productId});
 
         }
     }
