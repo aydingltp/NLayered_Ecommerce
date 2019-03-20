@@ -6,6 +6,7 @@ using E_Commerce.Business.Abstract;
 using E_Commerce.Business.Concrete;
 using E_Commerce.DataAccess.Abstract;
 using E_Commerce.DataAccess.Concrete.EntityFramework;
+using E_Commerce.MvcWebUI.Middlewares;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -28,10 +29,13 @@ namespace E_Commerce.MvcWebUI
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
             if (env.IsDevelopment())
-            {
+            { 
                 app.UseDeveloperExceptionPage();
             }
 
+            app.UseFileServer();
+            app.UseNodeModules(env.ContentRootPath);
+            app.UseStaticFiles();
             app.UseMvcWithDefaultRoute();
         }
     }
