@@ -7,7 +7,7 @@ using E_Commerce.Entities.Concrete;
 
 namespace E_Commerce.Business.Concrete
 {
-    class CategoryManager:ICategoryService
+    public class CategoryManager:ICategoryService
     {
         private ICategoryDal _categoryDal;
 

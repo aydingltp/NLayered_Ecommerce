@@ -50,7 +50,7 @@
     </div>
     <div class="row">
         <div class="col-md-2">
-            Kategori
+            @await Component.InvokeAsync("CategoryList")
         </div>
         <div class="col-md-10">
             @RenderBody()
