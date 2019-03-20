@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using E_Commerce.Business.Abstract;
+using E_Commerce.MvcWebUI.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace E_Commerce.MvcWebUI.Controllers
@@ -17,7 +18,13 @@ namespace E_Commerce.MvcWebUI.Controllers
         }
         public IActionResult Index()
         {
-            return View();
+            var products = _productService.GetAll();
+            ProductListViewModel model = new ProductListViewModel
+            {
+                Products=products
+            };
+
+            return View(model);
         }
     }
 }

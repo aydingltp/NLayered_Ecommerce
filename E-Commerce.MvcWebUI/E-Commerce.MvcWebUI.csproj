@@ -9,12 +9,11 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" PrivateAssets="All" />
-    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.2.3" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.2.0" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\E-Commerce.Business\E-Commerce.Business.csproj" />
-    <ProjectReference Include="..\E-Commerce.Core\E-Commerce.Core.csproj" />
     <ProjectReference Include="..\E-Commerce.Entities\E-Commerce.Entities.csproj" />
   </ItemGroup>
 
