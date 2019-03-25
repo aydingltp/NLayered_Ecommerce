@@ -9,5 +9,6 @@ namespace E_Commerce.MvcWebUI.Models
     public class CategoryListViewModel
     {
         public List<Category> Categories { get; set; }
+        public int CurrenCategory { get; internal set; }
     }
 }
