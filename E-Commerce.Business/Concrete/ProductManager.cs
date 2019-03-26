@@ -15,7 +15,7 @@ namespace E_Commerce.Business.Concrete
         {
             _productDal = productDal;
         }
-
+        
         public List<Product> GetAll()
         {
             return _productDal.GetList();
