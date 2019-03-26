@@ -24,6 +24,8 @@ namespace E_Commerce.MvcWebUI
             services.AddScoped<IProductDal,EfProductDal>();
             services.AddScoped<ICategoryService,CategoryManager>();
             services.AddScoped<ICategoryDal, EfCategoryDal>();
+            services.AddSession();
+            services.AddDistributedMemoryCache();
             services.AddMvc();  
         }
 
@@ -38,6 +40,7 @@ namespace E_Commerce.MvcWebUI
             app.UseFileServer();
             app.UseNodeModules(env.ContentRootPath);
             app.UseStaticFiles();
+            app.UseSession();
             app.UseMvcWithDefaultRoute();
         }
     }
