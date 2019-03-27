@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using E_Commerce.Business.Abstract;
+using E_Commerce.MvcWebUI.Models;
 using E_Commerce.MvcWebUI.Services;
 using Microsoft.AspNetCore.Mvc;
 
@@ -33,5 +34,16 @@ namespace E_Commerce.MvcWebUI.Controllers
 
         }
 
+        public ActionResult List()
+        {
+            var cart = _cartSessionService.GetCart();
+            CartListViewModel cartListViewModel=new CartListViewModel()
+            {
+                Cart=cart,  
+            };
+            return View(cartListViewModel);
+        }
+
     }
+    
 }
