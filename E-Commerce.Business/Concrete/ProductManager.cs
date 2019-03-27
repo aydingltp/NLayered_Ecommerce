@@ -32,7 +32,7 @@ namespace E_Commerce.Business.Concrete
         }
 
         public void Update(Product product)
-        {
+        { 
             _productDal.Update(product);
 
         }
@@ -41,6 +41,11 @@ namespace E_Commerce.Business.Concrete
         {
             _productDal.Delete(new Product{ProductId = productId});
 
+        }
+
+        public Product GetById(int productId)
+        {
+            return  _productDal.Get(p => p.ProductId == productId);
         }
     }
 }

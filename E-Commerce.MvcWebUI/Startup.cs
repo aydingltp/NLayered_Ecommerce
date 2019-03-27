@@ -7,6 +7,7 @@ using E_Commerce.Business.Concrete;
 using E_Commerce.DataAccess.Abstract;
 using E_Commerce.DataAccess.Concrete.EntityFramework;
 using E_Commerce.MvcWebUI.Middlewares;
+using E_Commerce.MvcWebUI.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -24,7 +25,10 @@ namespace E_Commerce.MvcWebUI
             services.AddScoped<IProductDal,EfProductDal>();
             services.AddScoped<ICategoryService,CategoryManager>();
             services.AddScoped<ICategoryDal, EfCategoryDal>();
-            services.AddSession();
+            services.AddSingleton<ICartSessionService, CartSessionService>();
+            services.AddSingleton<ICartService, CartService>();
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+            services.AddSession(); 
             services.AddDistributedMemoryCache();
             services.AddMvc();  
         }
