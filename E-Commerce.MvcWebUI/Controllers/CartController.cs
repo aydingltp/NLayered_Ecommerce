@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using E_Commerce.Business.Abstract;
+using E_Commerce.Entities.Concrete;
 using E_Commerce.MvcWebUI.Models;
 using E_Commerce.MvcWebUI.Services;
 using Microsoft.AspNetCore.Mvc;
@@ -14,6 +15,8 @@ namespace E_Commerce.MvcWebUI.Controllers
         private ICartSessionService _cartSessionService;
         private ICartService _cartService;
         private IProductService _productService;
+
+        public ShippingDetails ShippingDetails { get; private set; }
 
         public CartController(ICartSessionService cartSessionService, ICartService cartService, IProductService productService)
         {
@@ -51,9 +54,28 @@ namespace E_Commerce.MvcWebUI.Controllers
             _cartSessionService.SetCart(cart);
             TempData.Add("message", String.Format("Your product  was succesfully removed from the cart!"));
             return RedirectToAction("List");
-
         }
 
+
+        public ActionResult Complete()
+        {
+           var shippingDetailsViewModel=new ShippingDetailsViewModel
+           {
+               ShippingDetails = new ShippingDetails()
+           };
+
+            return View(ShippingDetails);
+        }
+        [HttpPost]
+        public ActionResult Complete(ShippingDetails shippingDetails)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View();
+            }
+            TempData.Add("message", String.Format( "Thank you {0}, your order is process",shippingDetails.FirstName));
+            return View();
+        }
     }
     
 }
