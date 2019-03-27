@@ -3,15 +3,20 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.438
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "E-Commerce.Core", "E-Commerce.Core\E-Commerce.Core.csproj", "{2A6CF0F7-5D01-4587-AB58-84B124637FA2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "E-Commerce.Core", "E-Commerce.Core\E-Commerce.Core.csproj", "{2A6CF0F7-5D01-4587-AB58-84B124637FA2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "E-Commerce.DataAccess", "E-Commerce.DataAccess\E-Commerce.DataAccess.csproj", "{ED58B491-2071-459B-A885-082E77847928}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "E-Commerce.DataAccess", "E-Commerce.DataAccess\E-Commerce.DataAccess.csproj", "{ED58B491-2071-459B-A885-082E77847928}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "E-Commerce.Business", "E-Commerce.Business\E-Commerce.Business.csproj", "{C4BD5C36-7589-422D-B0CC-949C702BA75E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "E-Commerce.Business", "E-Commerce.Business\E-Commerce.Business.csproj", "{C4BD5C36-7589-422D-B0CC-949C702BA75E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "E-Commerce.Entities", "E-Commerce.Entities\E-Commerce.Entities.csproj", "{2683D31F-E40D-4096-A228-635F3C991BF0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "E-Commerce.Entities", "E-Commerce.Entities\E-Commerce.Entities.csproj", "{2683D31F-E40D-4096-A228-635F3C991BF0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "E-Commerce.MvcWebUI", "E-Commerce.MvcWebUI\E-Commerce.MvcWebUI.csproj", "{A53498E1-B25D-43C1-A2D5-C6DD80F5E03D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "E-Commerce.MvcWebUI", "E-Commerce.MvcWebUI\E-Commerce.MvcWebUI.csproj", "{A53498E1-B25D-43C1-A2D5-C6DD80F5E03D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{0C7F4473-7DC2-4ADA-9F1D-F7A1778A8243}"
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

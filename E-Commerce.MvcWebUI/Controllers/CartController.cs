@@ -29,7 +29,7 @@ namespace E_Commerce.MvcWebUI.Controllers
 
             _cartSessionService.SetCart(cart);
             TempData.Add("message",String.Format("Your product, {0}, was succesfully added to the cart!",productToBeAdded.ProductName));
-           return RedirectToAction("List", "Product");
+           return RedirectToAction("Index", "Product");
 
         }
 
