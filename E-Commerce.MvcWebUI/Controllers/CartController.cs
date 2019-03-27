@@ -44,6 +44,16 @@ namespace E_Commerce.MvcWebUI.Controllers
             return View(cartListViewModel);
         }
 
+        public ActionResult Remove(int productId)
+        {
+            var cart = _cartSessionService.GetCart();
+            _cartService.RemoveFromCart(cart,productId);
+            _cartSessionService.SetCart(cart);
+            TempData.Add("message", String.Format("Your product  was succesfully removed from the cart!"));
+            return RedirectToAction("List");
+
+        }
+
     }
     
 }
