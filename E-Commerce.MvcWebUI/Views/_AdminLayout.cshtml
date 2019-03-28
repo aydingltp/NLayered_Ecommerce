@@ -32,7 +32,7 @@
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+                        <a class="nav-link" href="#" tabindex="-1" aria-disabled="true">Product Store</a>
                     </li>
                 </ul>
                 <ul class="navbar-nav mr-auto">
@@ -40,7 +40,7 @@
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Dropdown
                         </a>
-                        @await Component.InvokeAsync("CartSummary")
+                        
 
                     </li> 
                 </ul>
@@ -49,10 +49,7 @@
         </nav>
     </div>
     <div class="row">
-        <div class="col-md-2">
-            @await Component.InvokeAsync("CategoryList")
-        </div>
-        <div class="col-md-10">
+        <div class="col-md-12">
             @if (TempData["message"] != null)
             {
                 <div class="alert alert-info" role="alert"> @TempData["message"]</div>
