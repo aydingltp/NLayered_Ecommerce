@@ -70,8 +70,14 @@ namespace E_Commerce.MvcWebUI.Controllers
                 TempData.Add("message", "Product was successfully updated");
 
             }
-
             return RedirectToAction("Update");
+        }
+
+        public ActionResult Delete(int productId)
+        {
+            _productService.Delete(productId);
+            TempData.Add("message","Product was successfully deleted");
+            return RedirectToAction("Index");
         }
 
     }
