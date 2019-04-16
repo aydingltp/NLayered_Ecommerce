@@ -92,5 +92,5 @@ namespace E_Commerce.MvcWebUI.Controllers
             _signInManager.SignOutAsync().Wait();
             return RedirectToAction("Login");
         }
-    }
+    } 
 }
