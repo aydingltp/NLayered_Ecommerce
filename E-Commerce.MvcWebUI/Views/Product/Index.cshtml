@@ -4,12 +4,12 @@
     Layout = "~/Views/_Layout.cshtml";
 }
 <div>
-    <table class="table table-responsive">
+    <table class="table table-responsive  table-striped">
         <tr>
-            <td>Product Name</td>
-            <td>Unit Price</td>
-            <td>Units In Stock</td>
-            <td></td>
+            <th>Product Name</th>
+            <th>Unit Price</th>
+            <th>Units In Stock</th>
+            <th></th>
         </tr>
         @foreach (var product in Model.Products)
         {
@@ -22,8 +22,7 @@
         }
     </table>
 </div>
-<product-list-pager 
-    current-category="@Model.CurrentCategory" 
-    current-page="@Model.CurrentPage" 
-    page-count="@Model.PageCount" 
-    page-size="@Model.PageSize"></product-list-pager>
+<product-list-pager current-category="@Model.CurrentCategory"
+                    current-page="@Model.CurrentPage"
+                    page-count="@Model.PageCount"
+                    page-size="@Model.PageSize"></product-list-pager>
