@@ -15,17 +15,18 @@ namespace E_Commerce.MvcWebUI.Controllers
         private RoleManager<CustomIdentityRole> _roleManager;
         private SignInManager<CustomIdentityUser> _signInManager;
 
-        public AccountController(SignInManager<CustomIdentityUser> signInManager, RoleManager<CustomIdentityRole> roleManager, UserManager<CustomIdentityUser> userManager)
+        public AccountController(UserManager<CustomIdentityUser> userManager, RoleManager<CustomIdentityRole> roleManager, SignInManager<CustomIdentityUser> signInManager)
         {
-            _signInManager = signInManager;
-            _roleManager = roleManager;
             _userManager = userManager;
+            _roleManager = roleManager;
+            _signInManager = signInManager;
         }
 
         public ActionResult Register()
         {
             return View();
         }
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Register(RegisterViewModel registerViewModel)
@@ -37,20 +38,24 @@ namespace E_Commerce.MvcWebUI.Controllers
                     UserName = registerViewModel.UserName,
                     Email = registerViewModel.Email
                 };
-                IdentityResult result = _userManager.CreateAsync(user, registerViewModel.Password).Result;
+
+                IdentityResult result =
+                    _userManager.CreateAsync(user, registerViewModel.Password).Result;
 
                 if (result.Succeeded)
                 {
                     if (!_roleManager.RoleExistsAsync("Admin").Result)
                     {
-                        CustomIdentityRole role = new CustomIdentityRole()
+                        CustomIdentityRole role = new CustomIdentityRole
                         {
                             Name = "Admin"
                         };
+
                         IdentityResult roleResult = _roleManager.CreateAsync(role).Result;
+
                         if (!roleResult.Succeeded)
                         {
-                            ModelState.AddModelError("","We can't add the role!");
+                            ModelState.AddModelError("", "We can't add the role!");
                             return View(registerViewModel);
                         }
                     }
@@ -58,16 +63,16 @@ namespace E_Commerce.MvcWebUI.Controllers
                     _userManager.AddToRoleAsync(user, "Admin").Wait();
                     return RedirectToAction("Login", "Account");
                 }
-
             }
+
             return View(registerViewModel);
         }
-
 
         public ActionResult Login()
         {
             return View();
         }
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Login(LoginViewModel loginViewModel)
@@ -76,21 +81,24 @@ namespace E_Commerce.MvcWebUI.Controllers
             {
                 var result = _signInManager.PasswordSignInAsync(loginViewModel.UserName,
                     loginViewModel.Password, loginViewModel.RememberMe, false).Result;
+
                 if (result.Succeeded)
                 {
-                    return RedirectToAction("Index", "Admin");        
+                    return RedirectToAction("Index", "Admin");
                 }
-                ModelState.AddModelError("","Invalid login!");
+
+                ModelState.AddModelError("", "Invalid login!");
             }
 
             return View(loginViewModel);
         }
-        [HttpPost]
-        [ValidateAntiForgeryToken]
+
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
         public ActionResult LogOff()
         {
             _signInManager.SignOutAsync().Wait();
             return RedirectToAction("Login");
         }
-    } 
+    }
 }
