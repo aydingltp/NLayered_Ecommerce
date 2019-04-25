@@ -5,7 +5,6 @@
     Layout = "~/Views/_AdminLayout.cshtml";
 }
 
-
 <h2>Update Product</h2>
 
 <form asp-controller="Admin" asp-action="Update" method="post">
@@ -30,6 +29,6 @@
         <input asp-for="Product.UnitsInStock" class="form-control" placeholder="Units In Stock" />
         <span asp-validation-for="Product.UnitsInStock"></span>
     </div>
-    <input type="hidden" asp-for="Product.ProductId" />
+    <input type="hidden" asp-for="Product.ProductId"/>
     <input type="submit" value="Update" class="btn btn-xs btn-success" />
 </form>

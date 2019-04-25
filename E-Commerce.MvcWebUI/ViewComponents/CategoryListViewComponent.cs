@@ -23,7 +23,7 @@ namespace E_Commerce.MvcWebUI.ViewComponents
             var model = new CategoryListViewModel
             {
                 Categories = _categoryService.GetAll(),
-                CurrenCategory=Convert.ToInt32(HttpContext.Request.Query["category"])
+                CurrentCategory=Convert.ToInt32(HttpContext.Request.Query["category"])
             };
 
             return View(model);

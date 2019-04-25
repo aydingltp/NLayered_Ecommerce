@@ -13,6 +13,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Routing;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -54,7 +55,13 @@ namespace E_Commerce.MvcWebUI
             app.UseIdentity();
            // app.UseStaticFiles();
             app.UseSession();
-            app.UseMvcWithDefaultRoute();
+            app.UseMvc(ConfigureRoutes);
+        }
+
+        private void ConfigureRoutes(IRouteBuilder routeBuilder)
+        {
+            //  /Home/Index/
+            routeBuilder.MapRoute("Default", "{controller=Product}/{action=index}/{id?}");
         }
     }
 }

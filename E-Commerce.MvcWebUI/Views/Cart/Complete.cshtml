@@ -1,12 +1,11 @@
 ﻿@model E_Commerce.MvcWebUI.Models.ShippingDetailsViewModel
 
-@{
-    ViewBag.Title = "title";
-    Layout = "~/Views/_Layout.cshtml";
+    @{
+        ViewBag.Title = "title";
+        Layout = "~/Views/_Layout.cshtml";
+    }
 
-}
-
-<h2>Shipping Details</h2>
+    <h2>Shipping Details</h2>
 <form asp-controller="Cart" asp-action="Complete" method="post">
     <div class="form-group">
         <label asp-for="ShippingDetails.FirstName"></label>
